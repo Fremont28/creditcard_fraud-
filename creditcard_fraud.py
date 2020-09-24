@@ -1,5 +1,5 @@
 
-###Classifying credit card fraud with an isolation forest algorithm 
+#Classify credit card fraud with an isolation forest algorithm 
 
 #import libraries 
 import numpy as np 
@@ -8,7 +8,6 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from sklearn.ensemble import IsolationForest
 
-#import data (using numpy)
 filename='creditcard 3.csv'
 raw_data=open(filename,'rt')
 data_credit1=csv.reader(raw_data,delimiter=',')
@@ -32,6 +31,7 @@ X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.25,random_state=0
 clf=IsolationForest() 
 clf.fit(X_train)
 
+#predict if fraud occurs (0,1) 
 pred_train=clf.predict(X_train) #predicting on X_train
 y_pred_test=clf.predict(X_test) #predicting on Y_train 
 y_pred_outliers=clf.predict(X_outliers)
